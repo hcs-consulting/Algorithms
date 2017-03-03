@@ -6,67 +6,66 @@ package datastructures;
  */
 
 public class StackUsingLinkedList {
-	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Stack stack = new Stack();
-		for(int i=1;i<=20;i++){
+		for (int i = 1; i <= 20; i++) {
 			stack.push(i);
 		}
-		while(!stack.isEmpty()){
+		while (!stack.isEmpty()) {
 			System.out.println(stack.pop());
 		}
 	}
 
 }
 
+class Stack {
 
-class Stack{
-	
-	private static class Node{
+	private static class Node {
 		int data;
 		Node next;
-		private Node(int data){
+
+		private Node(int data) {
 			this.data = data;
 		}
 	}
-	private Node top=null;
+
+	private Node top = null;
 	private int size = 0;
-	
-	public boolean isEmpty(){
-		if(top==null){
+
+	public boolean isEmpty() {
+		if (top == null) {
 			return true;
-		}
-		else{
+		} else {
 			return false;
 		}
 	}
-	
-	public void push(int data){
+
+	public void push(int data) {
 		Node node = new Node(data);
-		if(top == null){
+		if (top == null) {
 			node.next = null;
-		}
-		else{
+		} else {
 			node.next = top;
 		}
 		top = node;
 	}
-	
-	public int pop(){
-		if(top == null){
+
+	public int pop() {
+		if (top == null) {
 			return -1;
 		}
 		Node tmp = top;
 		top = top.next;
 		return tmp.data;
 	}
-	
-	public int peek(){
-		if(top == null){
+
+	public int peek() {
+		if (top == null) {
 			return -1;
 		}
 		return top.data;
 	}
-	
+
 }
